@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zukexing.dao.HouseDao">
+
+    <insert id="insertHouse" parameterType="com.zukexing.pojo.House">
+        INSERT INTO `house` (`house_id`, `house_title`, `house_type`,
+        `house_area`, `house_floor`, `house_dir`, `house_intro`,
+        `house_local`, `house_require`, `house_img`,
+         `user_id`, `create_time`, `update_time`, `status`)
+         VALUES (NULL,
+         #{houseTitle}, #{houseType},
+        #{houseArea}, #{houseFloor}, #{houseDir}, #{houseIntro},
+        #{houseLocal}, #{houseRequire}, #{houseImg},
+         #{userId}, #{createTime}, #{updateTime}, #{status})
+    </insert>
+
+    <select id="queryById" parameterType="int" resultType="com.zukexing.pojo.House">
+        SELECT * FROM `house`, `rent` WHERE `house`.`house_id` = #{id} AND `rent`.`rouse_id` = `house`.`house_id`
+    </select>
+
+    <select id="queryIdByName" parameterType="string" resultType="int">
+        SELECT `house_id` FROM `house` WHERE `house_title` LIKE #{name} ORDER BY `house_id` DESC limit 1
+    </select>
+
+    <select id="queryAll" resultType="com.zukexing.pojo.House">
+        SELECT * FROM `house`, `rent`, `attr` WHERE `rent`.`home_id` = `house`.`house_id`
+        AND `attr`.`house_id` = `house`.`house_id` ORDER BY `house_id` DESC
+    </select>
+
+    <select id="queryByType" resultType="java.util.LinkedHashMap">
+        SELECT * FROM `house`, `rent`, `attr` WHERE `status` = 4
+        AND `rent_type` LIKE #{rentType} AND `rent`.`home_id` = `house`.`house_id`
+        AND `attr`.`house_id` = `house`.`house_id`
+        ORDER BY `update_time` DESC limit #{page}, #{count}
+    </select>
+
+</mapper>

@@ -12,8 +12,16 @@ spring:
     url: jdbc:mysql://localhost:3306/zukexing?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
     username: root
     password:
+  servlet:
+    multipart:
+      max-file-size: 200MB #单个文件上传大小
+      max-request-size: 600MB #连续上传文件大小
 
 mybatis:
   # MyBatis解析设置
   mapper-locations: classpath:mapping/*Mapping.xml
   type-aliases-package: com.zukexing.pojo
+
+file:
+    path1: "C:\\Users\\chall\\Documents\\eclipse-workspace2\\zukexing\\src\\main\\resources\\static\\image\\avater\\" #存储路径
+    path2: "C:\\Users\\chall\\Documents\\eclipse-workspace2\\zukexing\\src\\main\\resources\\static\\image\\house\\"

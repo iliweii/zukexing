@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zukexing.dao.RentDao">
+
+    <insert id="insertRent" parameterType="com.zukexing.pojo.Rent">
+        INSERT INTO `rent` (`rent_id`, `home_id`, `rent_type`, `mini_price`, `mini_dept`,
+                            `short_price`, `short_dept`, `long_price`, `long_dept`)
+                             VALUES (NULL, #{homeId}, #{rentType}, #{miniPrice}, #{miniDept},
+                                     #{shortPrice}, #{shortDept}, #{longPrice}, #{longDept})
+    </insert>
+
+    <update id="updateRent" parameterType="com.zukexing.pojo.Rent">
+        update `rent`
+        <set>
+            <if test="home_id != null">
+                id = #{homeId},
+            </if>
+            <if test="rent_type != null">
+                id = #{rentType},
+            </if>
+            <if test="mini_price != null">
+                id = #{miniPrice},
+            </if>
+            <if test="mini_dept != null">
+                id = #{miniDept},
+            </if>
+            <if test="short_price != null">
+                id = #{shortPrice},
+            </if>
+            <if test="short_dept != null">
+                id = #{shortDept},
+            </if>
+            <if test="long_price != null">
+                id = #{longPrice},
+            </if>
+            <if test="long_dept != null">
+                id = #{longDept},
+            </if>
+        </set>
+        where `rent_id` = #{rentId}
+    </update>
+
+</mapper>
