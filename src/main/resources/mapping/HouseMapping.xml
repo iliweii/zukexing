@@ -23,14 +23,15 @@
     </select>
 
     <select id="queryAll" resultType="com.zukexing.pojo.House">
-        SELECT * FROM `house`, `rent`, `attr` WHERE `rent`.`home_id` = `house`.`house_id`
-        AND `attr`.`house_id` = `house`.`house_id` ORDER BY `house_id` DESC
+        SELECT * FROM `house`, `rent`, `attr`, `user` WHERE `rent`.`home_id` = `house`.`house_id`
+        AND `attr`.`house_id` = `house`.`house_id` AND `house`.`user_id` = `user`.`userid`
+        ORDER BY `house_id` DESC
     </select>
 
     <select id="queryByType" resultType="java.util.LinkedHashMap">
-        SELECT * FROM `house`, `rent`, `attr` WHERE `status` = 4
+        SELECT * FROM `house`, `rent`, `attr`, `user` WHERE `house`.`status` = 4
         AND `rent_type` LIKE #{rentType} AND `rent`.`home_id` = `house`.`house_id`
-        AND `attr`.`house_id` = `house`.`house_id`
+        AND `attr`.`house_id` = `house`.`house_id` AND `house`.`user_id` = `user`.`user_id`
         ORDER BY `update_time` DESC limit #{page}, #{count}
     </select>
 

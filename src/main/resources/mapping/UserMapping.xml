@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zukexing.dao.UserDao">
+
+    <insert id="insertUser" parameterType="com.zukexing.pojo.User">
+        INSERT INTO `user` (`user_id`, `user_avater`, `user_nick`,
+        `user_sex`, `user_birth`, `user_phone`, `is_real`,
+        `real_name`, `real_id`, `password`, `exper`, `create_time`,
+        `is_landlord`, `status`)
+        VALUES (NULL, #{userAvater}, #{userNick}, #{userSex},
+                #{userBirth}, #{userPhone}, #{isReal}, #{realName}, #{realId},
+                #{password}, #{exper}, #{createTime}, #{isLandlord}, #{status})
+    </insert>
+
+</mapper>
