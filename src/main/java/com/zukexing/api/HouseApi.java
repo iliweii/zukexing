@@ -13,7 +13,7 @@ public class HouseApi {
     private int count = 7; // 默认每次更新7条数据
 
     @RequestMapping(value = "/reco", produces = "text/html;charset=UTF-8")
-    public String reco(@RequestParam("page") int page){
+    public String reco(@RequestParam(value = "page", required = false, defaultValue = "1") int page){
         return houseService.queryByType(page, count, "reco");
     }
     @RequestMapping(value = "/mini", produces = "text/html;charset=UTF-8")

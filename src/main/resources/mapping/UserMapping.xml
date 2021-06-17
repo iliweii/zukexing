@@ -12,4 +12,8 @@
                 #{password}, #{exper}, #{createTime}, #{isLandlord}, #{status})
     </insert>
 
+    <select id="queryByPhone" resultType="java.util.LinkedHashMap">
+        SELECT * FROM `user` WHERE `user_phone` LIKE #{phone}
+    </select>
+
 </mapper>

@@ -14,4 +14,15 @@ public class IndexController {
     public String index() {
         return "index";
     }
+
+
+    @RequestMapping("/policy/service")
+    public String service() {
+        return "service";
+    }
+
+    @RequestMapping("/policy/privacy")
+    public String privacy() {
+        return "privacy";
+    }
 }

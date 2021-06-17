@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 /src/main/resources/static/image/avater/
 /src/main/resources/static/image/house/
+!/src/main/resources/static/image/avater/default_avater.png
 
 ### STS ###
 .apt_generated
