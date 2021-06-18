@@ -16,4 +16,47 @@
         SELECT * FROM `user` WHERE `user_phone` LIKE #{phone}
     </select>
 
+    <update id="updateUser" parameterType="com.zukexing.pojo.User">
+        UPDATE `user`
+        <set>
+            <if test="userAvater != null">
+                user_avater = #{userAvater},
+            </if>
+            <if test="userNick != null">
+                user_nick = #{userNick},
+            </if>
+            <if test="userSex != null">
+                user_sex = #{userSex},
+            </if>
+            <if test="userBirth != null">
+                user_birth = #{userBirth},
+            </if>
+            <if test="userPhone != null">
+                user_phone = #{userPhone},
+            </if>
+            <if test="isReal != null">
+                is_real = #{isReal},
+            </if>
+            <if test="realName != null">
+                real_name = #{realName},
+            </if>
+            <if test="realId != null">
+                real_id = #{realId},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="exper != null">
+                exper = #{exper},
+            </if>
+            <if test="isLandlord != null">
+                is_landlord = #{isLandlord},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        WHERE `user`.`user_id` = #{userId}
+    </update>
+
 </mapper>

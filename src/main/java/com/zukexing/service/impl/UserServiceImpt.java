@@ -29,7 +29,7 @@ public class UserServiceImpt implements UserService {
     @Override
     public List<LinkedHashMap> login(String phone) {
         List<LinkedHashMap> user = userDao.queryByPhone(phone);
-        if (user == null) {
+        if (user.size() == 0) {
             // 新增user
             User new_user = new User();
             new_user.setUserAvater("default_avater.png");
@@ -45,6 +45,11 @@ public class UserServiceImpt implements UserService {
             user = userDao.queryByPhone(phone);
         }
         return user;
+    }
+
+    @Override
+    public Integer updateUser(User user) {
+        return userDao.updateUser(user);
     }
 
     public static String getRandomString(int length){

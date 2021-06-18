@@ -10,4 +10,5 @@ import java.util.List;
 public interface UserDao {
     Integer insertUser(User user);
     List<LinkedHashMap> queryByPhone(String phone);
+    Integer updateUser(User user);
 }
