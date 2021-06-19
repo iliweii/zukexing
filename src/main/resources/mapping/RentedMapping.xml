@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zukexing.dao.RentedDao">
+
+    <insert id="insert" parameterType="com.zukexing.pojo.Rented">
+        INSERT INTO `rented` (`rented_id`, `user_id`, `house_id`,
+                              `start_time`, `end_time`, `create_time`,
+                              `pay`, `pay_h`, `pay_d`, `status`)
+        VALUES (NULL, #{userId}, #{houseId}, #{startTime}, #{endTime},
+                #{createTime}, #{pay}, #{payH}, #{payD}, #{status})
+    </insert>
+
+    <select id="list" resultType="java.util.LinkedHashMap">
+        SELECT * FROM `rented`, `house` WHERE `rented`.`house_id` = `house`.`house_id`
+            AND `rented`.`user_id` = #{userId} ORDER BY `rented`.`create_time` DESC
+    </select>
+
+</mapper>

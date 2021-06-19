@@ -14,5 +14,6 @@ public interface HouseDao {
     Integer queryIdByName(String name);
     List<House> queryAll();
     List<LinkedHashMap> queryByType(int page, int count, String rentType);
+    List<LinkedHashMap> queryMy(int userId);
 
 }

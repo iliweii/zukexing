@@ -56,4 +56,9 @@ public class HouseServiceImpl implements HouseService {
         String json = gson.toJson(datas);
         return json;
     }
+
+    @Override
+    public List<LinkedHashMap> queryMy(int userId) {
+        return houseDao.queryMy(userId);
+    }
 }

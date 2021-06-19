@@ -35,4 +35,11 @@
         ORDER BY `update_time` DESC limit #{page}, #{count}
     </select>
 
+    <select id="queryMy" resultType="java.util.LinkedHashMap">
+        SELECT * FROM `house`, `rent`, `attr`, `user`
+        AND `rent`.`home_id` = `house`.`house_id` AND `attr`.`house_id` = `house`.`house_id`
+        AND `house`.`user_id` = `user`.`user_id` AND `house`.`user_id` = #{userId}
+        ORDER BY `update_time` DESC
+    </select>
+
 </mapper>
