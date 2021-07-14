@@ -11,7 +11,8 @@
     </insert>
 
     <select id="list" resultType="java.util.LinkedHashMap">
-        SELECT * FROM `rented`, `house` WHERE `rented`.`house_id` = `house`.`house_id`
+        SELECT * FROM `rented`, `house`, `user` WHERE `rented`.`house_id` = `house`.`house_id`
+            AND `rented`.`user_id` = `user`.`user_id`
             AND `rented`.`user_id` = #{userId} ORDER BY `rented`.`create_time` DESC
     </select>
 
