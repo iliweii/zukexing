@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RentDao {
     Integer insertRent(Rent rent);
-    Integer updateRent(Rent rent);
+//    Integer updateRent(Rent rent);
 }

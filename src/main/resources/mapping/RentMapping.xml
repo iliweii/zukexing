@@ -9,35 +9,35 @@
                                      #{shortPrice}, #{shortDept}, #{longPrice}, #{longDept})
     </insert>
 
-    <update id="updateRent" parameterType="com.zukexing.pojo.Rent">
-        update `rent`
-        <set>
-            <if test="home_id != null">
-                id = #{homeId},
-            </if>
-            <if test="rent_type != null">
-                id = #{rentType},
-            </if>
-            <if test="mini_price != null">
-                id = #{miniPrice},
-            </if>
-            <if test="mini_dept != null">
-                id = #{miniDept},
-            </if>
-            <if test="short_price != null">
-                id = #{shortPrice},
-            </if>
-            <if test="short_dept != null">
-                id = #{shortDept},
-            </if>
-            <if test="long_price != null">
-                id = #{longPrice},
-            </if>
-            <if test="long_dept != null">
-                id = #{longDept},
-            </if>
-        </set>
-        where `rent_id` = #{rentId}
-    </update>
+<!--    <update id="updateRent" parameterType="com.zukexing.pojo.Rent">-->
+<!--        update `rent`-->
+<!--        <set>-->
+<!--            <if test="home_id != null">-->
+<!--                id = #{homeId},-->
+<!--            </if>-->
+<!--            <if test="rent_type != null">-->
+<!--                id = #{rentType},-->
+<!--            </if>-->
+<!--            <if test="mini_price != null">-->
+<!--                id = #{miniPrice},-->
+<!--            </if>-->
+<!--            <if test="mini_dept != null">-->
+<!--                id = #{miniDept},-->
+<!--            </if>-->
+<!--            <if test="short_price != null">-->
+<!--                id = #{shortPrice},-->
+<!--            </if>-->
+<!--            <if test="short_dept != null">-->
+<!--                id = #{shortDept},-->
+<!--            </if>-->
+<!--            <if test="long_price != null">-->
+<!--                id = #{longPrice},-->
+<!--            </if>-->
+<!--            <if test="long_dept != null">-->
+<!--                id = #{longDept},-->
+<!--            </if>-->
+<!--        </set>-->
+<!--        where `rent_id` = #{rentId}-->
+<!--    </update>-->
 
 </mapper>
