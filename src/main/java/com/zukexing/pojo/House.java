@@ -1,6 +1,11 @@
 package com.zukexing.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 public class House {
 
   private Integer houseId;
@@ -14,8 +19,12 @@ public class House {
   private String houseRequire;
   private String houseImg;
   private Integer userId;
-  private String createTime;
-  private String updateTime;
+  @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+  @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+  private Date createTime;
+  @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+  @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+  private Date updateTime;
   private Integer status;
 
 
@@ -119,20 +128,20 @@ public class House {
   }
 
 
-  public String getCreateTime() {
+  public Date getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(String createTime) {
+  public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
 
 
-  public String getUpdateTime() {
+  public Date getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(String updateTime) {
+  public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
 

@@ -70,7 +70,7 @@ public class UserController {
             user.setStatus(2); // 默认为审核通过的
         }
         String nowTime = formatter.format(new Date());
-        user.setCreateTime(nowTime);
+        user.setCreateTime(new Date());
 
         int res = userService.insertUser(user);
         if (res == 1)

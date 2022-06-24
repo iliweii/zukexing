@@ -83,8 +83,8 @@ public class HouseController {
         Rent rent = gson.fromJson(rentJson, Rent.class);
         Attr attr = gson.fromJson(attrJson, Attr.class);
         house.setHouseImg(house_img);
-        house.setCreateTime(nowTime);
-        house.setUpdateTime(nowTime);
+        house.setCreateTime(new Date());
+        house.setUpdateTime(new Date());
         house.setStatus(4); // TODO 初级阶段默认为已审核
 
         int res = houseService.insertHouse(house, rent, attr);

@@ -38,7 +38,7 @@ public class UserServiceImpt implements UserService {
             new_user.setUserPhone(phone);
             new_user.setIsReal(0);
             new_user.setExper(0);
-            new_user.setCreateTime(formatter.format(new Date()));
+            new_user.setCreateTime(new Date());
             new_user.setIsLandlord(0);
             new_user.setStatus(2);
             int res = userDao.insertUser(new_user);

@@ -1,6 +1,11 @@
 package com.zukexing.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 public class Admin {
 
   private Integer adminId;
@@ -8,7 +13,9 @@ public class Admin {
   private String adminPwd;
   private String adminNick;
   private String adminType;
-  private String createTime;
+  @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+  @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+  private Date createTime;
   private Integer status;
 
 
@@ -57,11 +64,11 @@ public class Admin {
   }
 
 
-  public String getCreateTime() {
+  public Date getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(String createTime) {
+  public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
 

@@ -26,8 +26,7 @@ public class RentedApi {
     public String insert(@RequestParam("rented") String rentedjson) {
         Gson gson = new Gson();
         Rented rented = gson.fromJson(rentedjson, Rented.class);
-        String nowTime = formatter.format(new Date());
-        rented.setCreateTime(nowTime);
+        rented.setCreateTime(new Date());
         rented.setStatus(3);
         int res = rentedService.insert(rented);
         if (res > 0)
